@@ -81,20 +81,21 @@ address {
   margin-right: 60px;
 }
 
-.nav-contats {
+.nav-contacts {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.nav-contats-links {
+.nav-contacts-links {
   font-weight: 500;
   color: #757575;
   padding: 32px 0px 31px 0px;
   display: flex;
   align-items: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.nav-contats-links:hover,
-.nav-contats-links:focus {
+.nav-contacts-links:hover,
+.nav-contacts-links:focus {
   color: #2196f3;
 }
 
@@ -104,6 +105,7 @@ address {
   text-decoration: none;
   padding: 32px 0px 31px 0px;
   display: block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links:hover,
@@ -111,8 +113,21 @@ address {
   color: #2196f3;
 }
 .nav-links-current {
+  position: relative;
   color: #212121;
 }
+
+.nav-links-current::after {
+  content: "";
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: #2196f3;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+}
+
 .nav-container-item:not(:last-child) {
   margin-right: 50px;
 }
@@ -204,8 +219,28 @@ address {
 .what-we-do-lists {
   display: flex;
 }
+
+.what-we-do-item {
+  position: relative;
+}
+
 .what-we-do-item:not(:last-child) {
   margin-right: 30px;
+}
+
+.what-we-do-info {
+  position: absolute;
+  padding: 27px 27px;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  background: rgba(47, 48, 58, 0.8);
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 16px;
 }
 
 .our-team-container {
@@ -393,7 +428,37 @@ address {
 }
 .product-item-link {
   display: block;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.overflow-layer {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 150, 243, 0.9);
+  transform: translatey(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay > p {
+  margin: 63px 24px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+}
+
+.product-item-link:hover .overlay {
+  transform: translatey(0);
+}
+
 .product-item-link:hover,
 .product-item-link:focus {
   background: #ffffff;
@@ -443,4 +508,57 @@ address {
   background: #f5f4fa;
   border-radius: 4px;
   margin-bottom: 30px;
+}
+
+.backdrop {
+  display: flex;
+  background: rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  opacity: 100%;
+  visibility: visible;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.modal-container {
+  position: relative;
+  width: 528px;
+  height: 581px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.modal-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffffff;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-button:hover,
+.modal-button:focus {
+  color: #2196f3;
+  cursor: pointer;
+}
+.modal-button svg {
+  fill: currentColor;
 }

@@ -27,9 +27,9 @@
             </li>
           </ul>
         </nav>
-        <ul class="list nav-contats">
+        <ul class="list nav-contacts">
           <li class="nav-links-item">
-            <a href="mailto:info@devstudio.com" class="link nav-contats-links">
+            <a href="mailto:info@devstudio.com" class="link nav-contacts-links">
               <svg class="contact-icons" width="16" height="12">
                 <use fill="currentColor" href="images/icons.svg#icon-envelope"></use>
               </svg>
@@ -37,7 +37,7 @@
             </a>
           </li>
           <li class="nav-links-item">
-            <a href="tel:12127724150" class="link nav-contats-links">
+            <a href="tel:12127724150" class="link nav-contacts-links">
               <svg class="contact-icons" width="10" height="16">
                 <use href="images/icons.svg#icon-smartphone"></use>
               </svg>
@@ -55,7 +55,9 @@
             EFFECTIVE SOLUTIONS FOR <br />
             YOUR BUSINESS
           </h1>
-          <button class="hero-container-button" type="button">Request Our Service</button>
+          <button class="hero-container-button" type="button" data-modal-open>
+            Request Our Service
+          </button>
         </div>
       </section>
       <!-- Services Section -->
@@ -124,12 +126,15 @@
           <ul class="list what-we-do-lists">
             <li class="what-we-do-item">
               <img src="./images/programmer_writting-code.jpg" alt="Programmer writting code" />
+              <p class="what-we-do-info">DESKTOP APPS</p>
             </li>
             <li class="what-we-do-item">
               <img src="./images/researching.jpg" alt="Programmer researching" />
+              <p class="what-we-do-info">MOBILE APPS APPS</p>
             </li>
             <li class="what-we-do-item">
               <img src="./images/editing.jpg" alt="Editing" />
+              <p class="what-we-do-info">DESIGN SOLUTIONS</p>
             </li>
           </ul>
         </div>
@@ -397,5 +402,15 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal-container">
+        <button class="modal-button" data-modal-close>
+          <svg width="20" height="20">
+            <use href="images/icons.svg#icon-modal-close-button"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
